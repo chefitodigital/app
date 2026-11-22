@@ -1,0 +1,63 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - link "Chefito, página inicial" [ref=e5] [cursor=pointer]:
+      - /url: /
+      - text: chefito
+      - generic [ref=e6]: .
+    - navigation "Navegação principal" [ref=e7]:
+      - link "Como funciona" [ref=e8] [cursor=pointer]:
+        - /url: "#como-funciona"
+      - link "Entrar" [ref=e9] [cursor=pointer]:
+        - /url: "#acesso"
+  - main [ref=e10]:
+    - region "Um lugar para servir melhor." [ref=e11]:
+      - generic [ref=e12]:
+        - generic [ref=e13]: Seu negócio, do seu jeito
+        - heading "Um lugar para servir melhor." [level=1] [ref=e14]
+      - generic [ref=e15]:
+        - generic [ref=e16]:
+          - paragraph [ref=e17]: Seu cardápio, pedidos, reservas e gestão em uma experiência simples para você e seus clientes.
+          - link "Criar meu negócio" [ref=e18] [cursor=pointer]:
+            - /url: "#acesso"
+            - text: Criar meu negócio
+            - generic [aria-hidden] [ref=e19]: ↗
+          - generic [ref=e20]: Sua página em chefi.to/seu-negocio
+        - generic [ref=e23]:
+          - generic [ref=e24]:
+            - text: COMECE AQUI
+            - heading "Crie sua conta" [level=2] [ref=e25]
+            - paragraph [ref=e26]: Seu negócio merece uma presença própria.
+          - group "Tipo de acesso" [ref=e27]:
+            - button "Criar conta" [ref=e28] [cursor=pointer]
+            - button "Entrar" [ref=e29] [cursor=pointer]
+          - form "Formulário de cadastro" [ref=e30]:
+            - generic [ref=e32]:
+              - generic [ref=e33]: Email
+              - textbox "Email" [ref=e34]:
+                - /placeholder: voce@negocio.com
+            - generic [ref=e35]:
+              - generic [ref=e36]: Senha
+              - textbox "Senha" [ref=e37]:
+                - /placeholder: Mínimo de 6 caracteres
+            - button "Criar minha conta" [ref=e38] [cursor=pointer]
+          - paragraph [ref=e39]: Uma conta. Um negócio. Toda a operação em um só lugar.
+    - region "Mais tempo para o que importa." [ref=e40]:
+      - generic [ref=e41]:
+        - generic [ref=e42]: FEITO PARA O DIA A DIA
+        - heading "Mais tempo para o que importa." [level=2] [ref=e43]
+      - generic [ref=e44]:
+        - article [ref=e45]:
+          - generic [aria-hidden] [ref=e46]: "01"
+          - heading "Seu cardápio online" [level=3] [ref=e47]
+          - paragraph [ref=e48]: Apresente produtos e conte a história do seu negócio em uma página só sua.
+        - article [ref=e49]:
+          - generic [aria-hidden] [ref=e50]: "02"
+          - heading "Pedidos organizados" [level=3] [ref=e51]
+          - paragraph [ref=e52]: Acompanhe pedidos e clientes sem perder o ritmo da operação.
+        - article [ref=e53]:
+          - generic [aria-hidden] [ref=e54]: "03"
+          - heading "Gestão no mesmo lugar" [level=3] [ref=e55]
+          - paragraph [ref=e56]: Produtos, reservas, equipe e resultados conectados ao seu negócio.
+  - contentinfo [ref=e57]:
+    - generic [ref=e58]: chefito.
+    - paragraph [ref=e59]: Feito para negócios que servem bem.

@@ -1,0 +1,658 @@
+@import '../css/all.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-variant-ligatures: common-ligatures discretionary-ligatures contextual;
+}
+
+.image-skeleton {
+  background: linear-gradient(105deg, #e8ebee 25%, #f1f3f5 48%, #e8ebee 72%);
+  background-size: 220% 100%;
+  animation: image-skeleton-breathe 2.4s ease-in-out infinite;
+}
+
+.image-skeleton-ready { animation: none; }
+
+@keyframes image-skeleton-breathe {
+  0%, 100% { background-position: 100% 50%; }
+  50% { background-position: 0% 50%; }
+}
+
+.maplibregl-map {
+  font-family: var(--font-body);
+  border-radius: var(--radius-xl);
+}
+
+.maplibregl-canvas {
+  outline: none !important;
+  filter: grayscale(100%) !important;
+}
+
+
+.maplibregl-ctrl-attribution {
+  font-size: 10px !important;
+  padding: 2px 6px !important;
+  background: rgba(255, 255, 255, 0.85) !important;
+  border-top-left-radius: var(--radius-xl) !important;
+}
+
+/* Custom zoom control - match site's monochrome design */
+.maplibregl-ctrl-group {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(229, 231, 235, 0.8) !important;
+  border-radius: var(--radius-xl) !important;
+  box-shadow: var(--shadow-rest) !important;
+  overflow: hidden;
+  margin: 12px !important;
+}
+
+.maplibregl-ctrl-group button {
+  width: 34px !important;
+  height: 34px !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  transition: background-color var(--transition-fast) ease;
+}
+
+.maplibregl-ctrl-group button + button {
+  border-top: 1px solid rgba(229, 231, 235, 0.7) !important;
+}
+
+.maplibregl-ctrl-group button:hover {
+  background-color: rgba(243, 244, 246, 0.9) !important;
+}
+
+.maplibregl-ctrl-group button:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.maplibregl-ctrl-group button .maplibregl-ctrl-icon {
+  filter: grayscale(1) brightness(0.4);
+  opacity: 0.75;
+}
+
+.maplibregl-ctrl-group button:hover .maplibregl-ctrl-icon {
+  opacity: 1;
+}
+
+.maplibregl-ctrl-compass {
+  display: none !important;
+}
+
+/* Cards use backdrop filters, which create stacking contexts. Raise a card
+   containing an open custom dropdown so later cards never cover its menu. */
+.ui-card:has(.dropdown-open) {
+  z-index: 20;
+}
+
+
+.delivery-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delivery-pin-inner {
+  width: 36px;
+  height: 36px;
+  background: var(--color-accent);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-rest);
+}
+
+/* Pill-shape only accent action links and dashed-add links.
+   Regular <button> elements keep their explicit rounded-* utility so selection
+   cards (stats, icon pickers, currency, discount type, aspect ratio) stay
+   on the standard radius. Pill buttons should opt in via the `.btn` class. */
+a[class*="rounded-sm"][class*="bg-accent"],
+a[class*="rounded-md"][class*="bg-accent"],
+a[class*="rounded-lg"][class*="bg-accent"],
+a[class*="rounded-xl"][class*="bg-accent"],
+a[class*="rounded-2xl"][class*="bg-accent"],
+a[class*="rounded-lg"][class*="border-dashed"],
+a[class*="rounded-xl"][class*="border-dashed"],
+a[class*="rounded-lg"][class*="border-2"],
+a[class*="rounded-xl"][class*="border-2"] {
+  border-radius: var(--radius-full) !important;
+}
+
+
+/* Form controls share one radius across the landing page and business pages. */
+input[class*="rounded-lg"],
+input[class*="rounded-md"],
+input[class*="rounded-2xl"],
+textarea[class*="rounded-lg"],
+textarea[class*="rounded-md"],
+textarea[class*="rounded-2xl"],
+select[class*="rounded-lg"],
+select[class*="rounded-md"],
+select[class*="rounded-2xl"] {
+  border-radius: var(--radius-control) !important;
+}
+
+
+@layer base {
+  html {
+    scrollbar-gutter: stable;
+  }
+
+  ::selection {
+    background-color: rgb(209 213 219 / 0.25); /* gray-300 @ 25% */
+    color: inherit;
+  }
+  ::-moz-selection {
+    background-color: rgb(209 213 219 / 0.25);
+    color: inherit;
+  }
+
+  :root {
+    --color-accent: #212529;
+    --font-title: 'Gowun Dodum';
+    --font-body: 'Gowun Dodum';
+    --font-button: 'Gowun Dodum';
+    --font-size-caption: 0.8125rem;
+    --font-size-detail: 0.875rem;
+    --font-size-body: 1rem;
+
+    --radius-sm: 0.5rem;
+    --radius-md: 0.625rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-2xl: 1rem;
+    --radius-3xl: 1.25rem;
+    --radius-full: 9999px;
+    --radius-control: var(--radius-lg);
+    --radius-card: var(--radius-xl);
+    --radius-modal: var(--radius-3xl);
+
+    --shadow-rest: 0 2px 8px rgb(18 20 23 / 0.05);
+    --shadow-raised: 0 6px 20px rgb(18 20 23 / 0.07);
+    --shadow-overlay: 0 12px 36px rgb(18 20 23 / 0.12);
+
+    --btn-height-sm: 40px;
+    --btn-height-md: 48px;
+    --btn-height-lg: 56px;
+
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+
+    --transition-fast: 100ms;
+    --transition-normal: 200ms;
+    --transition-slow: 350ms;
+
+    --scrollbar-width: 3px;
+    --scrollbar-color: rgba(156, 163, 175, 0.2);
+    --scrollbar-color-hover: rgba(156, 163, 175, 0.4);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-title);
+  }
+
+  body {
+    font-family: var(--font-body);
+  }
+
+  button {
+    font-family: var(--font-button);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  /* Global Scrollbar - Ultra Minimal (Always Visible) */
+  *::-webkit-scrollbar {
+    width: var(--scrollbar-width);
+    height: var(--scrollbar-width);
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-color);
+    border-radius: var(--scrollbar-width);
+    transition: background var(--transition-normal) ease;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-color-hover);
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-color) transparent;
+  }
+
+  /* Custom scrollbar class for legacy compatibility */
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-color) transparent;
+  }
+
+  .modal-product-scroll {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .modal-product-scroll::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+
+  .category-scrollbar::-webkit-scrollbar {
+    height: 0;
+  }
+
+  .category-scrollbar::-webkit-scrollbar-button:horizontal:start,
+  .category-scrollbar::-webkit-scrollbar-button:horizontal:end {
+    display: block;
+    width: 1.5rem;
+    height: var(--scrollbar-width);
+    background: transparent;
+  }
+
+  .category-scrollbar::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+
+  .category-scrollbar {
+    scrollbar-width: none;
+  }
+
+  .category-scrollbar::-webkit-scrollbar-track {
+    margin-inline: 0;
+  }
+
+  @media (min-width: 640px) {
+    .category-scrollbar::-webkit-scrollbar-button:horizontal:start,
+    .category-scrollbar::-webkit-scrollbar-button:horizontal:end {
+      width: 2rem;
+    }
+  }
+
+  /* Remove number input spinners */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Cross-browser select dropdown styling */
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M2.22 4.47a.75.75 0 0 1 1.06 0L6 7.19l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L2.22 5.53a.75.75 0 0 1 0-1.06z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+    padding-right: 2.5rem;
+  }
+
+  select::-ms-expand {
+    display: none;
+  }
+
+  /* Custom checkbox styles */
+  input[type="checkbox"] {
+    @apply appearance-none w-5 h-5 rounded-full border-2 border-gray-300 
+           checked:bg-accent checked:border-accent relative transition-all duration-200
+           hover:border-accent cursor-pointer;
+  }
+
+  input[type="checkbox"]:checked::after {
+    content: '';
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+           w-2 h-2 bg-gray-50 rounded-full;
+  }
+
+  .border-gray-100 {
+    --tw-border-opacity: 1;
+    border-color: rgba(243, 244, 246, 1);
+  }
+}
+
+@layer components {
+  /* Custom animations */
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+
+  @keyframes scale {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-scale {
+    animation: scale 0.3s ease-in-out;
+  }
+
+  @keyframes cardFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-card-in {
+    animation: cardFadeIn 0.25s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-out forwards;
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.2s ease-out forwards;
+  }
+
+  @keyframes radarPing {
+    0% { transform: scale(1); opacity: 0.55; }
+    80%, 100% { transform: scale(1.5); opacity: 0; }
+  }
+
+  .animate-radar-ping {
+    animation: radarPing 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-scaleIn {
+    animation: scaleIn 0.2s ease-out forwards;
+  }
+
+  /* Glass effect */
+  .glass {
+    @apply bg-gray-50/70 backdrop-blur-lg border border-gray-50/20;
+  }
+
+  .glass-dark {
+    @apply bg-gray-950/70 backdrop-blur-lg border border-gray-50/10;
+  }
+
+  /* Modern button styles */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 font-medium disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden;
+    font-family: var(--font-button);
+    height: var(--btn-height-md);
+    border-radius: var(--radius-full);
+    transition: background-color var(--transition-fast) ease, border-color var(--transition-fast) ease, opacity var(--transition-fast) ease, transform var(--transition-fast) ease, box-shadow var(--transition-normal) ease;
+  }
+
+  .btn span {
+    font: inherit;
+  }
+
+  .btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+  }
+
+  .btn:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  .btn-primary {
+    @apply bg-accent text-gray-50 shadow-soft;
+    transition: background-color var(--transition-fast) ease, box-shadow var(--transition-normal) ease, transform var(--transition-fast) ease;
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    background-color: color-mix(in srgb, var(--color-accent) 92%, white);
+    box-shadow: var(--shadow-rest);
+  }
+
+
+  .btn-secondary {
+    @apply bg-gray-200/70 backdrop-blur-md text-gray-800 hover:bg-gray-200;
+  }
+
+  .btn-outline {
+    @apply border-2 border-accent text-accent hover:bg-accent hover:text-gray-50;
+  }
+
+  .btn-danger {
+    @apply bg-accent text-gray-50 hover:bg-accent/90;
+  }
+
+  /* Modern Toggle Switch */
+  .toggle-switch {
+    @apply relative inline-flex h-7 w-14 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none;
+  }
+
+  .toggle-switch[data-state="checked"] {
+    @apply bg-accent shadow-inner;
+  }
+
+  .toggle-switch[data-state="unchecked"] {
+    @apply bg-gray-200;
+  }
+
+  .toggle-switch-thumb {
+    @apply pointer-events-none inline-block h-6 w-6 transform rounded-full bg-gray-50 shadow-lg transition duration-200 ease-in-out translate-x-0;
+  }
+
+  .toggle-switch[data-state="checked"] .toggle-switch-thumb {
+    @apply translate-x-7 shadow-accent opacity-20;
+  }
+
+  .toggle-switch[data-state="unchecked"] .toggle-switch-thumb {
+    @apply translate-x-0;
+  }
+
+  /* Card styles - glassmorphism */
+  .card {
+    @apply bg-gray-50/70 backdrop-blur-xl overflow-hidden border border-gray-50/60;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-rest);
+    transition: box-shadow var(--transition-normal) ease, transform var(--transition-normal) ease, background-color var(--transition-normal) ease;
+  }
+
+  .card:hover {
+    background-color: rgb(248 249 250 / 0.85);
+    box-shadow: var(--shadow-raised);
+  }
+
+
+  .card-hover {
+    @apply hover:-translate-y-0.5 hover:shadow-card-hover;
+  }
+
+  /* Input styles - subtle glass */
+  .input {
+    @apply w-full px-4 border border-gray-200/70 bg-gray-50/60 backdrop-blur-sm;
+    height: var(--btn-height-md);
+    border-radius: var(--radius-xl);
+    transition: border-color var(--transition-fast) ease, background-color var(--transition-fast) ease, box-shadow var(--transition-fast) ease;
+  }
+
+  .input:focus {
+    background-color: rgb(248 249 250 / 0.9);
+    border-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 12%, transparent) !important;
+  }
+
+
+  textarea.input {
+    @apply py-4;
+    height: auto;
+  }
+
+
+  .input-group {
+    @apply space-y-1;
+  }
+
+  .input-label {
+    @apply block text-sm font-medium text-gray-700;
+  }
+
+  /* Badge styles */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .badge-success {
+    @apply bg-gray-100 text-gray-800;
+  }
+
+  .badge-error {
+    @apply bg-accent/10 text-accent;
+  }
+
+  /* Table styles */
+  .table-modern {
+    @apply min-w-full divide-y divide-gray-200;
+  }
+
+  .table-modern th {
+    @apply px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider;
+  }
+
+  .table-modern td {
+    @apply px-6 py-4 whitespace-nowrap text-sm text-gray-800;
+  }
+
+  .table-modern tr {
+    @apply hover:bg-gray-50 transition-colors duration-200;
+  }
+
+  /* Modal styles */
+  .modal-overlay {
+    @apply fixed inset-0 bg-gray-950/50 backdrop-blur-sm flex items-center justify-center p-4 z-50;
+  }
+
+  .modal-content {
+    @apply bg-gray-50/90 backdrop-blur p-6 max-w-md w-full transform;
+    border-radius: var(--radius-modal);
+    box-shadow: var(--shadow-overlay);
+    transition: box-shadow var(--transition-fast) ease;
+  }
+
+  /* Loading animation */
+  .loading {
+    @apply relative;
+  }
+
+  .loading::after {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-gray-50/20 to-transparent;
+    animation: loading 1.5s infinite;
+  }
+
+  @keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+}
+
+@layer utilities {
+  /* Custom accent color utilities */
+  .bg-accent {
+    background-color: var(--color-accent);
+  }
+
+  .text-accent {
+    color: var(--color-accent);
+  }
+
+  .border-accent {
+    border-color: var(--color-accent);
+  }
+
+  .hover\:bg-accent\/90:hover {
+    background-color: color-mix(in srgb, var(--color-accent) 90%, transparent);
+  }
+
+  .bg-accent\/30 {
+    background-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
+  }
+
+  .bg-accent\/20 {
+    background-color: color-mix(in srgb, var(--color-accent) 20%, transparent);
+  }
+
+  .bg-accent\/10 {
+    background-color: color-mix(in srgb, var(--color-accent) 10%, transparent);
+  }
+
+  .hover\:bg-accent\/40:hover {
+    background-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
+  }
+
+  .border-accent\/30 {
+    border-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
+  }
+
+  .border-accent\/20 {
+    border-color: color-mix(in srgb, var(--color-accent) 20%, transparent);
+  }
+
+  .bg-accent\/5 {
+    background-color: color-mix(in srgb, var(--color-accent) 5%, transparent);
+  }
+}

@@ -1,0 +1,16 @@
+# Área pública do restaurante
+User-agent: *
+Allow: /
+
+# Áreas privadas e administrativas
+Disallow: /ajustes
+Disallow: /pedidos
+Disallow: /pedidos/
+Disallow: /clientes
+Disallow: /colaboradores
+Disallow: /produtos
+Disallow: /financeiro
+Disallow: /reservas
+Disallow: /perfil
+Disallow: /pedido/
+

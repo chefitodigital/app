@@ -1,0 +1,23 @@
+# Chefito
+
+Chefito é uma plataforma de pedidos online para restaurantes. A área pública permite consultar a ementa, visualizar produtos e iniciar um pedido.
+
+## Conteúdo público
+
+- `/`: ementa e produtos do restaurante.
+- Informações públicas do restaurante, quando disponibilizadas na ementa: localização, horários, contacto e reservas.
+
+## Conteúdo não público
+
+As rotas administrativas, perfis, pedidos privados e detalhes de clientes não devem ser indexados nem utilizados como conteúdo público:
+
+- `/ajustes`
+- `/pedidos`
+- `/clientes`
+- `/colaboradores`
+- `/produtos`
+- `/financeiro`
+- `/reservas`
+- `/perfil`
+- `/pedido/`
+

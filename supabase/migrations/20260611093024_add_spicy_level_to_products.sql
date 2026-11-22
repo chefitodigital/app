@@ -1,0 +1,1 @@
+ALTER TABLE products ADD COLUMN IF NOT EXISTS spicy_level smallint NOT NULL DEFAULT 1 CHECK (spicy_level BETWEEN 1 AND 3);

@@ -1,0 +1,12 @@
+revoke execute on function public.award_loyalty_points() from public, anon, authenticated;
+revoke execute on function public.handle_new_user() from public, anon, authenticated;
+revoke execute on function public.get_reserved_table_slots(uuid[], timestamptz, timestamptz) from public, anon, authenticated;
+revoke execute on function public.get_next_order_sequence() from public, anon, authenticated;
+revoke execute on function public.is_super_admin() from public, anon, authenticated;
+alter function public.is_supabase_storage_url(text) set search_path = '';
+alter function public.reject_legacy_supabase_storage_urls() set search_path = '';
+alter function public.update_customers_updated_at() set search_path = '';
+alter function public.update_staff_updated_at() set search_path = '';
+alter function public.update_restaurant_awards_updated_at() set search_path = '';
+alter function public.handle_new_user() set search_path = '';
+alter function public.get_next_order_sequence() set search_path = public, pg_catalog;

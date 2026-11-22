@@ -1,0 +1,120 @@
+- generic [ref=e9]:
+  - generic [ref=e11]:
+    - banner [ref=e12]:
+      - generic [ref=e14]:
+        - link "RajBurger" [ref=e15] [cursor=pointer]:
+          - /url: /rajburger
+        - button "Menu" [ref=e19] [cursor=pointer]
+    - main [ref=e21]:
+      - generic [ref=e23]:
+        - generic [ref=e27]:
+          - button [ref=e28] [cursor=pointer]
+          - button "Hambúrguer3" [ref=e31] [cursor=pointer]
+          - button "Acompanhamento1" [ref=e32] [cursor=pointer]
+          - button "Bebida1" [ref=e33] [cursor=pointer]
+        - generic [ref=e34]:
+          - generic [ref=e35]:
+            - img "Delícia Crocante da Horta" [ref=e37] [cursor=pointer]
+            - generic [ref=e39]:
+              - heading "Delícia Crocante da Horta" [level=3] [ref=e40] [cursor=pointer]
+              - generic [ref=e41]: Picante Moderado
+              - paragraph [ref=e46]: Pão de sésamo artesanal, hambúrguer de novilho suculento, queijo fatiado, alface frisada, tomate fresco, pepino laminado e pimento assado. Acompanha chips finas e estaladiças. Um hambúrguer leve, fresco e equilibrado, onde os vegetais crocantes contrastam com a suculência da carne e a untuosidade do queijo.
+              - generic [ref=e47]:
+                - generic [ref=e48]:
+                  - generic [ref=e49]: Preço
+                  - generic [ref=e50]: R$ 12,50
+                - button "Ver produto" [active] [ref=e51] [cursor=pointer]
+          - generic [ref=e53]:
+            - img "Molho Supremo" [ref=e55] [cursor=pointer]
+            - generic [ref=e57]:
+              - heading "Molho Supremo" [level=3] [ref=e58] [cursor=pointer]
+              - paragraph [ref=e59]: Pão de sementes, hambúrguer de frango grelhado, alface crocante, tomate maduro, repolho roxo crocante, pepino e um generoso molho cremoso de alho e paprica. Uma explosão de texturas e sabor num hambúrguer ousado e irresistível, com o molho como protagonista absoluto.
+              - generic [ref=e60]:
+                - generic [ref=e61]:
+                  - generic [ref=e62]: Preço
+                  - generic [ref=e63]: R$ 13,00
+                - button "Ver produto" [ref=e64] [cursor=pointer]
+          - generic [ref=e66]:
+            - img "Rústico Italiano" [ref=e68] [cursor=pointer]
+            - generic [ref=e70]:
+              - heading "Rústico Italiano" [level=3] [ref=e71] [cursor=pointer]
+              - paragraph [ref=e72]: Pão rústico com sementes, hambúrguer artesanal de carne grelhada, presunto curado, rúcula fresca e lascas de queijo parmesão. Um tributo à simplicidade sofisticada da cozinha italiana, com notas salgadas e amargas equilibradas na perfeição.
+              - generic [ref=e73]:
+                - generic [ref=e74]:
+                  - generic [ref=e75]: Preço
+                  - generic [ref=e76]: R$ 11,00
+                - button "Ver produto" [ref=e77] [cursor=pointer]
+    - button [ref=e81] [cursor=pointer]
+    - contentinfo [ref=e83]:
+      - generic [ref=e85]:
+        - generic [ref=e86]:
+          - generic [ref=e87]:
+            - heading "RajBurger" [level=3] [ref=e89]:
+              - generic [ref=e90] [cursor=pointer]
+              - text: RajBurger
+            - generic:
+              - paragraph
+          - generic [ref=e91]:
+            - heading "Horário" [level=3] [ref=e92]
+            - generic [ref=e94]:
+              - generic [ref=e95]:
+                - heading "Segunda à Sexta" [level=4] [ref=e96]
+                - paragraph [ref=e97]: 11h às 23h
+              - generic [ref=e98]:
+                - heading "Sábado e Domingo" [level=4] [ref=e99]
+                - paragraph [ref=e100]: 11h às 00h
+          - generic [ref=e101]:
+            - heading "Contato" [level=3] [ref=e102]
+            - generic [ref=e104]:
+              - link "(+351) 123-456-789" [ref=e109] [cursor=pointer]:
+                - /url: tel:351123456789
+              - link "info@chefi.to" [ref=e114] [cursor=pointer]:
+                - /url: mailto:info@chefi.to
+              - link "instagram.com/chefi.to" [ref=e119] [cursor=pointer]:
+                - /url: https://instagram.com/chefi.to
+          - generic [ref=e120]:
+            - heading "Localização" [level=3] [ref=e121]
+            - paragraph [ref=e129]: Av. Sabor, 123 - Cidade
+        - paragraph [ref=e132]: © 2026 RajBurger. Todos os direitos reservados.
+  - generic [ref=e134]:
+    - generic [ref=e135]:
+      - img "Delícia Crocante da Horta" [ref=e136]
+      - generic [ref=e137]:
+        - button [ref=e138] [cursor=pointer]
+        - button [ref=e140] [cursor=pointer]
+    - generic [ref=e142]:
+      - generic [ref=e143]:
+        - generic [ref=e144]:
+          - generic [ref=e145]:
+            - heading "Delícia Crocante da Horta" [level=2] [ref=e146]
+            - paragraph [ref=e148]: Pão de sésamo artesanal, hambúrguer de novilho suculento, queijo fatiado, alface frisada, tomate fresco, pepino laminado e pimento assado. Acompanha chips finas e estaladiças. Um hambúrguer leve, fresco e equilibrado, onde os vegetais crocantes contrastam com a suculência da carne e a untuosidade do queijo.
+            - generic [ref=e149]: Picante
+          - generic [ref=e152]:
+            - generic [ref=e153]:
+              - generic [ref=e154]: Preço total
+              - generic [ref=e155]: R$ 12,50
+            - button "Adicionar ao Cesto" [ref=e156] [cursor=pointer]
+        - generic [ref=e157]:
+          - heading "Personalize o seu pedido" [level=3] [ref=e158]
+          - generic [ref=e159]:
+            - generic [ref=e161] [cursor=pointer]:
+              - generic [ref=e162]:
+                - checkbox "Bacon + R$ 1,70" [ref=e164]
+                - generic [ref=e165]: Bacon
+              - generic [ref=e166]: + R$ 1,70
+            - generic [ref=e169] [cursor=pointer]:
+              - generic [ref=e170]:
+                - checkbox "Ovo + R$ 1,20" [ref=e172]
+                - generic [ref=e173]: Ovo
+              - generic [ref=e174]: + R$ 1,20
+            - generic [ref=e177] [cursor=pointer]:
+              - generic [ref=e178]:
+                - checkbox "Queijo + R$ 2,30" [ref=e180]
+                - generic [ref=e181]: Queijo
+              - generic [ref=e182]: + R$ 2,30
+            - generic [ref=e185] [cursor=pointer]:
+              - generic [ref=e186]:
+                - checkbox "Hambúrguer + R$ 2,50" [ref=e188]
+                - generic [ref=e189]: Hambúrguer
+              - generic [ref=e190]: + R$ 2,50
+      - generic [ref=e192] [cursor=pointer]

@@ -1,0 +1,40 @@
+- generic [ref=f16e3]:
+  - banner [ref=f16e4]:
+    - generic [ref=f16e6]:
+      - link "RajBurger" [ref=f16e7] [cursor=pointer]:
+        - /url: /rajburger
+      - button "Menu" [ref=f16e11] [cursor=pointer]
+  - main [ref=f16e13]
+  - button "Abrir carrinho" [ref=f16e17] [cursor=pointer]
+  - contentinfo [ref=f16e19]:
+    - generic [ref=f16e21]:
+      - generic [ref=f16e22]:
+        - generic [ref=f16e23]:
+          - heading "RajBurger" [level=3] [ref=f16e25]:
+            - generic [ref=f16e26] [cursor=pointer]
+            - text: RajBurger
+          - paragraph [ref=f16e28]: O RajBurger combina hambúrgueres de carne 100% bovina, grelhados no ponto certo, com ingredientes frescos e molhos preparados pela casa. Dos clássicos às combinações mais ousadas, cada receita foi pensada para entregar muito sabor em cada mordida.
+        - generic [ref=f16e29]:
+          - heading "Horário" [level=3] [ref=f16e30]
+          - generic [ref=f16e32]:
+            - generic [ref=f16e33]:
+              - heading "Segunda à Sexta" [level=4] [ref=f16e34]
+              - paragraph [ref=f16e35]: 11h às 23h
+            - generic [ref=f16e36]:
+              - heading "Sábado e Domingo" [level=4] [ref=f16e37]
+              - paragraph [ref=f16e38]: 11h às 00h
+        - generic [ref=f16e39]:
+          - heading "Contato" [level=3] [ref=f16e40]
+          - generic [ref=f16e42]:
+            - link "(+351) 123-456-789" [ref=f16e47] [cursor=pointer]:
+              - /url: tel:351123456789
+            - link "info@chefi.to" [ref=f16e52] [cursor=pointer]:
+              - /url: mailto:info@chefi.to
+            - link "instagram.com/chefi.to" [ref=f16e57] [cursor=pointer]:
+              - /url: https://instagram.com/chefi.to
+            - link "WhatsApp" [ref=f16e62] [cursor=pointer]:
+              - /url: https://wa.me/17988030103
+        - generic [ref=f16e63]:
+          - heading "Localização" [level=3] [ref=f16e64]
+          - paragraph [ref=f16e72]: Av. Sabor, 123 - Cidade
+      - paragraph [ref=f16e75]: © 2026 RajBurger. Todos os direitos reservados.

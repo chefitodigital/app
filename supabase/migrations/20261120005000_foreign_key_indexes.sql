@@ -1,0 +1,11 @@
+create index if not exists discount_coupons_product_business_idx on public.discount_coupons (product_id, business_id);
+create index if not exists orders_customer_business_idx on public.orders (customer_id, business_id);
+create index if not exists product_extras_extra_business_idx on public.product_extras (business_id, extra_id);
+create index if not exists product_extras_product_business_idx on public.product_extras (business_id, product_id);
+create index if not exists product_modal_views_product_business_idx on public.product_modal_views (business_id, product_id);
+create index if not exists product_tags_product_business_idx on public.product_tags (business_id, product_id);
+create index if not exists product_tags_tag_business_idx on public.product_tags (business_id, tag_id);
+create index if not exists products_category_business_idx on public.products (business_id, category_id);
+create index if not exists staff_schedules_staff_business_idx on public.staff_schedules (business_id, staff_id);
+create index if not exists users_customer_id_idx on public.users (customer_id);
+create index if not exists customers_identity_idx on public.customers (business_id, lower(trim(email)), lower(trim(name)), regexp_replace(phone, '[^0-9]', '', 'g'));

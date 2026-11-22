@@ -1,0 +1,18 @@
+# Dependencies and generated frontend build
+node_modules/
+dist/
+
+# Local environment credentials
+.env
+.env.local
+.env.*.local
+
+# Tool caches and logs
+.vite/
+coverage/
+*.log
+*.tsbuildinfo
+
+# Operating-system files
+.DS_Store
+Thumbs.db
