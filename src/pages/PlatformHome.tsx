@@ -1,6 +1,6 @@
-import { useEffect, useState, type CSSProperties, type FormEvent } from 'react';
+import { useEffect, useRef, useState, type CSSProperties, type FormEvent } from 'react';
 import { supabase } from '../lib/supabase';
-import { AnimatePresence, motion } from 'motion/react';
+import { animate, AnimatePresence, motion } from 'motion/react';
 import { RESTAURANT_ICONS } from '../lib/restaurantIcons';
 import { PLATFORM_ADMIN_ID } from '../lib/platformAdmin';
 import type { SupabaseClient } from '@supabase/supabase-js';
@@ -10,6 +10,22 @@ import './platform.css';
 type AuthMode = 'login' | 'register';
 
 export default function PlatformHome() {
+  const scrollAnimation = useRef<ReturnType<typeof animate> | null>(null);
+  useEffect(() => () => scrollAnimation.current?.stop(), []);
+  function scrollToSection(event: React.MouseEvent<HTMLAnchorElement>) {
+    const hash = event.currentTarget.hash;
+    const target = document.getElementById(hash.slice(1));
+    if (!target) return;
+    event.preventDefault();
+    if (window.location.hash !== hash) window.history.pushState(null, '', hash);
+    scrollAnimation.current?.stop();
+    const top = Math.min(window.scrollY + target.getBoundingClientRect().top, document.documentElement.scrollHeight - window.innerHeight);
+    scrollAnimation.current = animate(window.scrollY, top, {
+      duration: 0.8,
+      ease: [0.22, 1, 0.36, 1],
+      onUpdate: value => window.scrollTo({ top: value, behavior: 'instant' }),
+    });
+  }
   const [mode, setMode] = useState<AuthMode>('register');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -114,8 +130,8 @@ export default function PlatformHome() {
           <img className="platform-brand-mark" src="/app.png" alt="" /> Chefito
         </a>
         <nav aria-label="Navegação principal">
-          <a href="#como-funciona">Como funciona</a>
-          <a href="#acesso">Entrar</a>
+          <a href="#como-funciona" onClick={scrollToSection}>Como funciona</a>
+          <a href="#acesso" onClick={scrollToSection}>Entrar</a>
         </nav>
       </header>
 
@@ -132,7 +148,7 @@ export default function PlatformHome() {
                 <div className="platform-preview-categories"><span>Cardápio</span><span>Pedidos</span><span>Gestão</span></div>
                 <div className="platform-preview-link"><i className="fa-solid fa-link" aria-hidden="true" /> chefi.to/seu-negocio</div>
               </div>
-              <a className="platform-discover" href="#como-funciona">Conheça o Chefito <span aria-hidden="true"><i className="fa-solid fa-chevrons-down" /></span></a>
+              <a className="platform-discover" href="#como-funciona" onClick={scrollToSection}>Conheça o Chefito <span aria-hidden="true"><i className="fa-solid fa-chevrons-down" /></span></a>
             </motion.div>
             <motion.div className="platform-auth-shell" id="acesso" {...reveal(0.12)}>
             <div className="platform-auth-card">

@@ -350,7 +350,7 @@ function App() {
   }
 
   if (!business) {
-    return <div className="platform-page grid min-h-screen place-items-center p-8 text-center"><div><h1 className="text-4xl font-bold">Negócio não encontrado</h1><p className="mt-4">Confira o endereço ou crie seu negócio no Chefito.</p><a className="platform-link-button" href="/">Ir para o Chefito</a></div></div>;
+    return <div className="platform-page"><header className="platform-header"><a className="platform-brand" href="/" aria-label="Chefito, página inicial"><img className="platform-brand-mark" src="/app.png" alt="" /> Chefito</a></header><main className="platform-not-found"><div className="platform-not-found-content"><span className="platform-not-found-icon" aria-hidden="true"><motion.i className="fa-solid fa-fish-bones" animate={{ rotate: 360 }} transition={{ duration: 6, ease: 'linear', repeat: Infinity }} /></span><h1>Negócio não encontrado</h1><p>Confira o endereço ou volte para conhecer o Chefito.</p><a href="/" className="platform-not-found-link">Voltar ao início</a></div></main></div>;
   }
 
   return (

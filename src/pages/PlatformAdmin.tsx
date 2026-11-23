@@ -74,7 +74,23 @@ export default function PlatformAdmin() {
     setForm(emptyForm); setEditing(null); setNotice('Anúncio salvo com sucesso.'); await load();
   };
   if (authorized === null) return <main className="flex min-h-screen items-center justify-center bg-gray-100 px-6" role="status" aria-live="polite"><div className="flex flex-col items-center gap-3 text-center"><img src="/app.png" alt="" className="h-10 w-10 object-contain opacity-70" /><p className="text-sm text-gray-600">Verificando acesso...</p></div></main>;
-  if (!authorized) return <main className="p-10"><h1>Acesso restrito</h1><p>Esta área é exclusiva da administração do Chefito.</p><a href="/">Voltar ao início</a></main>;
+  if (!authorized) return (
+    <div className="platform-page">
+      <header className="platform-header">
+        <a className="platform-brand" href="/" aria-label="Chefito, página inicial">
+          <img className="platform-brand-mark" src="/app.png" alt="" /> Chefito
+        </a>
+      </header>
+      <main className="platform-not-found">
+        <div className="platform-not-found-content">
+          <span className="platform-not-found-icon" aria-hidden="true"><i className="fa-solid fa-lock" /></span>
+          <h1>Acesso restrito</h1>
+          <p>Esta área é exclusiva da administração do Chefito.</p>
+          <a className="platform-not-found-link" href="/">Voltar ao início</a>
+        </div>
+      </main>
+    </div>
+  );
   const label = 'block text-sm font-medium text-gray-700 mb-2';
   const input = 'w-full rounded-xl border border-gray-200 bg-white px-4 py-3 text-gray-800 transition-colors hover:border-gray-300 focus:border-gray-600 focus:outline-none';
   const section = 'rounded-2xl border border-white/60 bg-gray-50/80 p-6 shadow-card backdrop-blur-xl';
