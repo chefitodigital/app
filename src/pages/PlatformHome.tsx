@@ -28,6 +28,7 @@ export default function PlatformHome() {
         try {
           if (new URL(data.hero_image_url).protocol === 'https:') {
             const image = new Image();
+            image.fetchPriority = 'high';
             image.onload = () => { if (active) setHeroImage(image.src); };
             image.src = data.hero_image_url;
           }
@@ -120,7 +121,7 @@ export default function PlatformHome() {
 
       <main>
         <section className="platform-hero platform-landing-hero" aria-labelledby="platform-title">
-          {heroImage && <motion.div aria-hidden="true" className="platform-hero-background" style={{ '--platform-hero-image': `url(${JSON.stringify(heroImage)})` } as CSSProperties} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, ease: 'easeOut' }} />}
+          {heroImage && <motion.div aria-hidden="true" className="platform-hero-background" style={{ '--platform-hero-image': `url(${JSON.stringify(heroImage)})` } as CSSProperties} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, ease: 'easeInOut' }} />}
           <div className="platform-hero-bottom">
             <motion.div className="platform-intro platform-visual" {...reveal()}>
               <span className="platform-eyebrow">DA COZINHA PARA A TELA</span>
@@ -151,10 +152,12 @@ export default function PlatformHome() {
                   <input id="platform-email" name="email" type="email" autoComplete="email" value={email} onChange={(event) => setEmail(event.target.value)} required placeholder="voce@negocio.com" />
                 </div>
                 {!recovering && <div className="platform-field">
-                  <label htmlFor="platform-password">Senha</label>
+                  <div className="platform-password-heading">
+                    <label htmlFor="platform-password">Senha</label>
+                    {mode === 'login' && <button type="button" className="platform-auth-text-button" onClick={() => { setRecovering(true); setMessage(''); }}>Esqueci minha senha</button>}
+                  </div>
                   <input id="platform-password" name="password" type="password" autoComplete={mode === 'login' ? 'current-password' : 'new-password'} minLength={6} value={password} onChange={(event) => setPassword(event.target.value)} required placeholder="Mínimo de 6 caracteres" />
                 </div>}
-                {!recovering && mode === 'login' && <button type="button" className="platform-auth-text-button" onClick={() => { setRecovering(true); setMessage(''); }}><i className="fa-solid fa-key" aria-hidden="true" /> Esqueci minha senha</button>}
                 {message && <p className="platform-form-message" role="status" aria-live="polite">{message}</p>}
                 <button className="platform-submit" type="submit" disabled={busy}>{busy ? 'Aguarde...' : recovering ? 'Enviar link de recuperação' : mode === 'register' ? 'Criar minha conta' : 'Entrar no Chefito'}</button>
                 {recovering && <button type="button" className="platform-auth-back" onClick={() => { setRecovering(false); setMessage(''); }}>Voltar para entrar</button>}

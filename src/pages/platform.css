@@ -68,8 +68,9 @@
 .platform-submit:hover:not(:disabled) { filter: brightness(1.08); }
 .platform-submit:disabled { opacity: .6; cursor: wait; }
 .platform-auth-text-button, .platform-auth-back { display: block; border: 0; background: transparent; color: #495057; font-size: var(--font-size-detail); cursor: pointer; }
-.platform-auth-text-button { display: flex; align-items: center; gap: 6px; margin: -4px 0 18px auto; padding: 8px 12px; border-radius: var(--radius-full); background: #e9ecef; color: #495057; transition: background-color .18s ease; }
-.platform-auth-text-button:hover { background: #dee2e6; text-decoration: none; }
+.platform-password-heading { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.platform-page .platform-auth-text-button { display: inline-flex; align-items: center; gap: 6px; padding: 0; font-size: var(--font-size-detail); color: #70777e; }
+.platform-auth-text-button:hover { text-decoration: underline; }
 .platform-auth-back { margin: 18px auto 0; }
 .platform-auth-back:hover { text-decoration: underline; }
 .platform-reset-main { min-height: calc(100vh - 90px); display: grid; place-items: center; padding: 32px 24px 80px; }
@@ -152,6 +153,7 @@
   .platform-discover { margin-top: 24px; }
 }
 @media (max-width: 640px) {
+  .platform-preview { width: fit-content; max-width: 100%; }
   .platform-header nav { gap: 16px; }
   .platform-header nav a:first-child { display: none; }
   .platform-hero { gap: 48px; padding-bottom: 80px; }
